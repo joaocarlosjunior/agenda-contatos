@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:8.0
+    container_name: mySql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db_phone_book'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    volumes:
+      - "./scripts/script.sql:/docker-entrypoint-initdb.d/script.sql"
+  tomcat:
+    container_name: tomcat
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+    
