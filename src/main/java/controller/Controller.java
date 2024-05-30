@@ -1,8 +1,5 @@
 package controller;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfWriter;
 import model.Contato;
 import model.DAO;
 
@@ -35,7 +32,6 @@ public class Controller extends HttpServlet {
             case "/main" -> contatos(request, response);
             case "/select" -> listarContato(request, response);
             case "/delete" -> deletarContato(request, response);
-            case "/report" -> gerarRelatorio(request, response);
             default -> response.sendRedirect("index.html");
         }
 	}
@@ -145,19 +141,4 @@ public class Controller extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-
-	protected void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) {
-		Document documento = new Document(null);
-
-		response.setContentType("apllication/pdf");
-		response.addHeader("Content-Disposition", "inline; filename=" + "contatos.pdf");
-
-		try {
-			PdfWriter.getInstance(documento, response.getOutputStream());
-		} catch (DocumentException | IOException e) {
-			e.printStackTrace();
-		}
-
-    }
-
 }
