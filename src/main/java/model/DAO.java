@@ -11,11 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.HttpServletResponse;
-
 import java.util.regex.Matcher;
-
-
 
 public class DAO {
 
@@ -43,8 +39,8 @@ public class DAO {
 
 	public Map<Boolean, String> inserirContato(Contato contato) {
 		String create = "INSERT INTO contato (nome,fone,email) VALUES (?,?,?)";
-		
-		Map<Boolean,String> resp = new HashMap<Boolean,String>();
+
+		Map<Boolean, String> resp = new HashMap<Boolean, String>();
 
 		try {
 
@@ -61,15 +57,15 @@ public class DAO {
 			connection.close();
 
 			resp.put(Boolean.FALSE, "");
-			
+
 			return resp;
 
 		} catch (SQLIntegrityConstraintViolationException e) {
-			
+
 			System.out.println(e);
-			
+
 			resp.put(Boolean.TRUE, dadoDuplicado(e.getMessage()));
-			
+
 			return resp;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -185,12 +181,12 @@ public class DAO {
 
 	private String dadoDuplicado(String msgErro) {
 
-		 Pattern pattern = Pattern.compile("'(.*?)'");
-	        Matcher matcher = pattern.matcher(msgErro);
-	        if (matcher.find()) {
-	            return matcher.group(1);
-	        } else {
-	            return null;
-	        }
+		Pattern pattern = Pattern.compile("'(.*?)'");
+		Matcher matcher = pattern.matcher(msgErro);
+		if (matcher.find()) {
+			return matcher.group(1);
+		} else {
+			return null;
+		}
 	}
 }

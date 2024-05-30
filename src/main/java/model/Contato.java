@@ -2,23 +2,22 @@ package model;
 
 import java.io.Serializable;
 
-public class Contato implements Serializable{
-	
-	
+public class Contato implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 
 	private String id;
-	
+
 	private String nome;
-	
+
 	private String fone;
-	
+
 	private String email;
-	
+
 	public Contato() {
 		super();
 	}
-	
+
 	public Contato(String id, String nome, String fone, String email) {
 		super();
 		this.id = id;
