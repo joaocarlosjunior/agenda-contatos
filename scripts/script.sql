@@ -1,6 +1,6 @@
 CREATE TABLE contato(
 id int(4) AUTO_INCREMENT,
-nome varchar(30) NOT NULL,
+nome varchar(100) NOT NULL,
 fone varchar(15) NOT NULL,
 email varchar(60),
 PRIMARY KEY (id),
