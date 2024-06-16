@@ -1,6 +1,6 @@
 # Agenda de Contatos
 ## Descrição 
-Esse projeto utiliza JavaEE para gerenciar agenda de contatos, com a criação, exclusão, consulta e edição de contatos.
+Esse projeto utiliza JavaEE para desenvolvimento de uma aplicação que gerencia uma agenda de contatos, com a criação, exclusão, consulta e edição de contatos.
 <br>
 <br>
 Home:
